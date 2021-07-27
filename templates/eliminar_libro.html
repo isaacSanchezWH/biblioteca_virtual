@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+
+{% block contener %}
+    <form method="post">
+        {% csrf_token %}
+       <h3>¿Desea eliminar el libro {{ object.nombre }}</h3> 
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+        <a class="btn btn-default" href="{% url 'listar_libro_def' %}">Cancelar</a>
+    </form>
+
+{% endblock %}

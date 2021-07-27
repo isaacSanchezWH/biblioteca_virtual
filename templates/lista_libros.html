@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block contener %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+            <td>#</td>
+			<td>titulo</td>
+			<td>Autores</td>
+			<td>Editor</td>
+			<td>Fecha de publicacion</td>
+            <td>Opciones</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for Libro in object_list %}
+		<tr>
+			<td>{{ Libro.id }}</td>
+			<td>{{ Libro.titulo }}</td>
+			<td>
+                {% for autor in Libro.autores.all %}
+                    {{ autor.nombre }}
+
+                {% endfor %}
+            </td>
+			<td>{{ Libro.editor }}</td>
+			<td>{{ Libro.fecha_publicacion }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'actualizar_libro' Libro.id %}"> Editar</a>
+				<a class="btn btn-danger" href="{% url 'eliminar_libro' Libro.id %}"> Eliminar</a>
+				<a class="btn btn-secondary" href="{% url 'detail' Libro.id %}"> Detalles</a>
+			</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay ningun libro registrado</h1>
+		{% endif %}
+	</tbody>
+</table> 
+{% endblock%}

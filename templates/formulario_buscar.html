@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+
+
+{% block contener %}
+    <form action="" method="get" >
+        <input type="text" name="q">
+        <input type="submit" value="Buscar">
+    </form>
+    {% if errors %}
+    {% for error in errors %}
+    <span style= "color:red;">{{ error }}</span> 
+    {% endfor %}
+    {% endif %}
+{% endblock %}
+
