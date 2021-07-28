@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from biblioteca.models import Libro
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import DeleteView, UpdateView
+from django.core.urlresolvers import reverse_lazy
 #from django.core.urlresolvers import reverse
 
 # Create your views here.
@@ -66,18 +67,18 @@ class LibroCreate(CreateView):
     model = Libro
     form_class = LibroForm
     template_name = 'registro_libro.html'
-    #success_url = redirect('Home')
+    success_url = reverse_lazy('Home')
 
 class LibroUpdate(UpdateView):
     model = Libro
     form_class = LibroForm
     template_name = 'registro_libro.html'
-    #success_url = redirect('Home')
+    success_url = reverse_lazy('Home')
 
 class LibroDelete(DeleteView):
     model = Libro
     template_name = 'eliminar_libro_def.html'
-    #success_url = redirect('Home')
+    success_url = reverse_lazy('Home')
 
 class LibroList(ListView):
      model = Libro
