@@ -48,7 +48,7 @@ def actualizar_libro(request, id_libro):
     if request.method == 'GET':
         form = LibroForm(instance=libro)
     else:
-        form = LibroForm(request.POST, instance=libro)
+        form = LibroForm(request.POST, request.FILES ,instance=libro)
         if form.is_valid():
             form.save()
         return redirect(lista_libros)
