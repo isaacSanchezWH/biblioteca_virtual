@@ -10,6 +10,7 @@
 			<td>Autores</td>
 			<td>Editor</td>
 			<td>Fecha de publicacion</td>
+			<td>Portada</td>
             <td>Opciones</td>
 		</tr>
 		
@@ -25,9 +26,10 @@
                     {{ autor.nombre }}
 
                 {% endfor %}
-            </td>
+            </td>	
 			<td>{{ Libro.editor }}</td>
 			<td>{{ Libro.fecha_publicacion }}</td>
+			<td> <img src="/media/{{Libro.portada}}" width="100px" height="100px"></td>
 			<td>
 				<a class="btn btn-primary" href="{% url 'actualizar_libro' Libro.id %}"> Editar</a>
 				<a class="btn btn-danger" href="{% url 'eliminar_libro' Libro.id %}"> Eliminar</a>
